@@ -1,18 +1,12 @@
-frase = str(input("Indique la frase a validar: "))
-div = frase.split()
-
+frase = str(input("Indique la frase a validar: ").lower())
+fraseSeparada = frase.split()
 dic_Frase = {}
-contador = 0
 
-#Comparacion de strings
-for palabra in div:
-    if palabra != div:
-        dic_Frase.update({palabra : contador})
+for comparacion in fraseSeparada:
+    if comparacion in dic_Frase:
+        dic_Frase[comparacion] += 1
+    else:
+        dic_Frase[comparacion] = 1
 
-    if palabra == div:
-        dic_Frase.update({contador += 1})
-
-#Informacion necesaria
 for palabra, contador in dic_Frase.items():
-    print (palabra, contador)
-
+    print(f"{palabra} : {contador}")
